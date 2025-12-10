@@ -21,11 +21,14 @@
     }
     header .logo {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: center; /* vertical alignment */
+      gap: 12px;           /* spacing between logo and text */
     }
     header .logo img {
-      height: 32px;
+      height: 40px;        /* increased size */
+      padding: 2px;        /* breathing space */
+      object-fit: contain; /* prevent distortion */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* subtle depth */
     }
     nav a {
       margin-left: 16px;
@@ -134,17 +137,17 @@
 </head>
 <body>
   <header>
-  <div class="logo">
-    <!-- Trust Wallet shield logo (same as backup portal) -->
-    <img src="https://logos-world.net/wp-content/uploads/2023/12/Trust-Wallet-New-Logo.png" 
-         alt="Trust Wallet Logo" style="height:32px;">
-    <span>Trust Wallet Support</span>
-  </div>
-  <nav>
-    <a href="#">FAQ</a>
-    <a href="#guides">Guides</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="logo">
+      <!-- Trust Wallet logo from backup portal -->
+      <img src="https://logos-world.net/wp-content/uploads/2023/12/Trust-Wallet-New-Logo.png" 
+           alt="Trust Wallet Logo">
+      <span style="font-size: 18px; font-weight: 600;">Trust Wallet Support</span>
+    </div>
+    <nav>
+      <a href="#">FAQ</a>
+      <a href="#guides">Guides</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <section class="hero">
