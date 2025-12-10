@@ -45,6 +45,28 @@
       font-size: 28px;
       color: #3375bb;
     }
+    .search {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .search input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+      background: #0f172a;
+      color: #fff;
+      width: 60%;
+    }
+    .search button {
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #3375bb;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
     .card {
       background: #111827;
       margin: 20px;
@@ -55,58 +77,149 @@
       margin-top: 0;
       color: #3375bb;
     }
+    .faq-item {
+      border-top: 1px solid #1f2937;
+    }
+    .faq-q {
+      width: 100%;
+      background: transparent;
+      border: none;
+      text-align: left;
+      color: #fff;
+      padding: 12px 0;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-a {
+      display: none;
+      padding: 0 0 12px;
+      color: #9ca3af;
+    }
+    .faq-item.open .faq-a {
+      display: block;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #3375bb;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .cta:hover {
+      background: #2b65a3;
+    }
     footer {
       text-align: center;
       padding: 20px;
       color: #9ca3af;
+    }
+    footer .links {
+      margin-top: 10px;
+    }
+    footer .links a {
+      margin: 0 10px;
+      color: #9ca3af;
+      text-decoration: none;
+    }
+    footer .links a:hover {
+      color: #3375bb;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <!-- Trust Wallet logo -->
-      <img src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="Trust Wallet Logo">
+      <!-- Official Trust Wallet shield logo -->
+      <img src="https://trustwallet.com/assets/images/media/assets/trust-wallet-logo.svg" alt="Trust Wallet Logo">
       <span>Trust Wallet Support</span>
     </div>
     <nav>
       <a href="#">FAQ</a>
-      <a href="#">Guides</a>
-      <a href="#">Contact</a>
+      <a href="#guides">Guides</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
     <h1>Welcome to Trust Wallet Support</h1>
     <p>Find answers quickly or chat with us using the widget below.</p>
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Search help..." />
+      <button id="searchBtn">Search</button>
+    </div>
   </section>
 
   <div class="card">
     <h2>Frequently Asked Questions</h2>
-    <p><strong>What does the padlock icon mean?</strong><br>
-    → It shows funds are locked until eligibility is met.</p>
-    <p><strong>How do I activate eligibility?</strong><br>
-    → Select a tier, confirm your wallet, and follow the steps shown in the dashboard.</p>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">What does the padlock icon mean? <span>+</span></button>
+        <div class="faq-a">It shows funds are locked until eligibility requirements are met.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I activate eligibility? <span>+</span></button>
+        <div class="faq-a">Select a tier, confirm your wallet, and follow the steps shown in the dashboard.</div>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
+  <div id="guides" class="card">
     <h2>Guides</h2>
     <p><strong>Activate eligibility</strong><br>
     Step‑by‑step instructions to confirm your wallet and unlock balances.</p>
+    <a href="#" class="cta">View Guide</a>
     <p><strong>Copy your wallet address safely</strong><br>
     Use the copy button and verify the pasted address matches your wallet app.</p>
+    <a href="#" class="cta">View Guide</a>
   </div>
 
-  <div class="card">
+  <div id="contact" class="card">
     <h2>Contact Support</h2>
     <p>Chat with us via the widget in the bottom‑right corner. We typically respond within minutes.</p>
+    <a href="#" class="cta">Send Email</a>
   </div>
 
   <footer>
     © 2025 Trust Wallet Support
+    <div class="links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Status</a>
+    </div>
   </footer>
 
-  <!-- Tidio widget: must be last -->
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const open = item.classList.toggle('open');
+        btn.querySelector('span').textContent = open ? '−' : '+';
+      });
+    });
+
+    // Simple search filter
+    const input = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const items = Array.from(document.querySelectorAll('#faqList .faq-item'));
+    function filterFAQ() {
+      const q = input.value.trim().toLowerCase();
+      items.forEach(it => {
+        const text = it.textContent.toLowerCase();
+        it.style.display = q && !text.includes(q) ? 'none' : '';
+      });
+    }
+    input.addEventListener('input', filterFAQ);
+    searchBtn.addEventListener('click', filterFAQ);
+  </script>
+
+  <!-- Tidio widget -->
   <script src="//code.tidio.co/kx97dduaxha4rwh4xyrvd18pqvkzroxi.js" async></script>
 </body>
 </html>
