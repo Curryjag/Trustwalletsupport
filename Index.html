@@ -3,176 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TRUST Support Center</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Trust Wallet Support</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0b1220;         /* deep navy */
-      --card: #111827;       /* dark card */
-      --text: #e5e7eb;       /* light text */
-      --muted: #9ca3af;      /* muted text */
-      --blue: #3375bb;       /* Trust Wallet blue */
-      --blue-600: #2b65a3;
-      --border: #1f2937;
-      --shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
-
-    * { box-sizing: border-box }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: Inter, sans-serif;
+      background: #0b1220; /* Trust Wallet dark navy */
+      color: #fff;
     }
-    a { color: var(--blue); text-decoration: none }
-    a:hover { text-decoration: underline }
-
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 16px }
-    header { display: flex; align-items: center; justify-content: space-between; padding: 12px 0 }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700 }
-    .brand .shield {
-      width: 28px; height: 28px; border-radius: 8px; background: var(--blue);
-      display: inline-flex; align-items: center; justify-content: center; color: white; font-weight: 700;
-      box-shadow: var(--shadow);
+    header {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111827;
     }
-    nav { display: flex; gap: 16px }
-    nav a { color: var(--text); opacity: 0.9 }
-    nav a.active { color: white; border-bottom: 2px solid var(--blue) }
-
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .logo img {
+      height: 32px;
+    }
+    nav a {
+      margin-left: 16px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #3375bb;
+    }
     .hero {
-      margin-top: 8px; padding: 20px; background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; box-shadow: var(--shadow);
+      padding: 40px 20px;
+      text-align: center;
     }
-    .hero h1 { margin: 0 0 8px; font-size: 22px }
-    .hero p { margin: 0 0 16px; color: var(--muted) }
-    .search { display: flex; gap: 10px; }
-    .search input {
-      flex: 1; padding: 12px 14px; background: #0f172a; border: 1px solid var(--border);
-      border-radius: 12px; color: var(--text); outline: none;
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #3375bb;
     }
-    .search button {
-      padding: 10px 14px; border-radius: 12px; background: var(--blue); color: white; border: none;
-      cursor: pointer;
-    }
-    .search button:hover { background: var(--blue-600) }
-
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px }
-    @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr } }
-
     .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; box-shadow: var(--shadow);
+      background: #111827;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 12px;
     }
-    .card h2 { margin: 0 0 8px; font-size: 18px }
-    .card p { color: var(--muted); margin: 0 0 12px }
-
-    .faq-item { border-top: 1px solid var(--border) }
-    .faq-q {
-      width: 100%; background: transparent; border: none; text-align: left; color: var(--text);
-      padding: 12px 0; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    .card h2 {
+      margin-top: 0;
+      color: #3375bb;
     }
-    .faq-q:hover { color: white }
-    .faq-a { display: none; padding: 0 0 12px; color: var(--muted) }
-    .faq-item.open .faq-a { display: block }
-
-    .guide { display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed var(--border); padding-top: 12px }
-    .guide .cta {
-      align-self: flex-start; background: var(--blue); color: white; border: none; border-radius: 10px; padding: 8px 12px; cursor: pointer;
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #9ca3af;
     }
-    .guide .cta:hover { background: var(--blue-600) }
-
-    footer { margin: 20px 0; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; align-items: center }
-    .links { display: flex; gap: 14px }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <span class="shield">T</span>
-        <span>TRUST Support</span>
-      </div>
-      <nav>
-        <a href="#" class="active">FAQ</a>
-        <a href="#guides">Guides</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <!-- Trust Wallet logo -->
+      <img src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="Trust Wallet Logo">
+      <span>Trust Wallet Support</span>
+    </div>
+    <nav>
+      <a href="#">FAQ</a>
+      <a href="#">Guides</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <h1>Support Center</h1>
-      <p>Find answers fast, or chat with us via the widget below.</p>
-      <div class="search">
-        <input id="searchInput" type="search" placeholder="Search help..." />
-        <button id="searchBtn">Search</button>
-      </div>
-    </section>
+  <section class="hero">
+    <h1>Welcome to Trust Wallet Support</h1>
+    <p>Find answers quickly or chat with us using the widget below.</p>
+  </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Frequently Asked Questions</h2>
-        <div id="faqList">
-          <div class="faq-item">
-            <button class="faq-q">What does the padlock icon mean? <span>+</span></button>
-            <div class="faq-a">It indicates funds that are currently not transferable until eligibility requirements are met.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">How do I activate eligibility? <span>+</span></button>
-            <div class="faq-a">Select a tier on the eligibility page, confirm your wallet address, and follow the steps.</div>
-          </div>
-        </div>
-      </div>
-
-      <div id="guides" class="card">
-        <h2>Step‑by‑Step Guides</h2>
-        <div class="guide">
-          <strong>Activate eligibility</strong>
-          <p>Open the eligibility page, choose a tier, confirm your wallet, and wait for the dashboard to load.</p>
-          <button class="cta">View guide</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact Support</h2>
-      <p>Chat with us via the widget in the bottom‑right corner. We typically respond within minutes.</p>
-    </section>
-
-    <footer>
-      <span>© 2025 TRUST Support</span>
-      <div class="links">
-        <a href="#">Status</a>
-        <a href="#">Security</a>
-        <a href="#">Privacy</a>
-      </div>
-    </footer>
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
+    <p><strong>What does the padlock icon mean?</strong><br>
+    → It shows funds are locked until eligibility is met.</p>
+    <p><strong>How do I activate eligibility?</strong><br>
+    → Select a tier, confirm your wallet, and follow the steps shown in the dashboard.</p>
   </div>
 
-  <script>
-    // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const open = item.classList.toggle('open');
-        btn.querySelector('span').textContent = open ? '−' : '+';
-      });
-    });
+  <div class="card">
+    <h2>Guides</h2>
+    <p><strong>Activate eligibility</strong><br>
+    Step‑by‑step instructions to confirm your wallet and unlock balances.</p>
+    <p><strong>Copy your wallet address safely</strong><br>
+    Use the copy button and verify the pasted address matches your wallet app.</p>
+  </div>
 
-    // Simple search filter
-    const input = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const items = Array.from(document.querySelectorAll('#faqList .faq-item'));
-    function filterFAQ() {
-      const q = input.value.trim().toLowerCase();
-      items.forEach(it => {
-        const text = it.textContent.toLowerCase();
-        it.style.display = q && !text.includes(q) ? 'none' : '';
-      });
-    }
-    input.addEventListener('input', filterFAQ);
-    searchBtn.addEventListener('click', filterFAQ);
-  </script>
+  <div class="card">
+    <h2>Contact Support</h2>
+    <p>Chat with us via the widget in the bottom‑right corner. We typically respond within minutes.</p>
+  </div>
 
-  <!-- Tidio widget -->
-  <script src="//code.tidio.co/kx97dduaxha4rwh4xyrvd18pqvkzroxi.js
+  <footer>
+    © 2025 Trust Wallet Support
+  </footer>
+
+  <!-- Tidio widget: must be last -->
+  <script src="//code.tidio.co/kx97dduaxha4rwh4xyrvd18pqvkzroxi.js" async></script>
+</body>
+</html>
