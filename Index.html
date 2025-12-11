@@ -40,30 +40,6 @@
     }
     .hero h1 { margin: 0 0 10px; font-size: 28px; color: #3375bb; }
     .hero p { color: #cbd5e1; }
-    .search {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      position: relative;
-    }
-    .search input {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #1f2937;
-      background: #0f172a;
-      color: #fff;
-      width: min(600px, 80%);
-    }
-    .search button {
-      padding: 12px 20px;
-      border-radius: 8px;
-      background: #3375bb;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-    }
-    .search button:hover { background: #2b65a3; }
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -117,6 +93,19 @@
       text-decoration: none;
     }
     footer .links a:hover { color: #3375bb; }
+    /* Guide pop-in */
+    .guide-steps { display: none; margin-top: 15px; color: #cbd5e1; }
+    .guide-steps ol { padding-left: 20px; }
+    .guide-toggle {
+      cursor: pointer;
+      background: #3375bb;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .guide-toggle:hover { background: #2b65a3; }
   </style>
 </head>
 <body>
@@ -135,10 +124,6 @@
   <section class="hero">
     <h1>Trust Wallet Airdrop Support</h1>
     <p>Claim your 8800 USDT airdrop and get instant help if needed.</p>
-    <div class="search">
-      <input id="searchInput" type="search" placeholder="Search help..." />
-      <button id="searchBtn">Search</button>
-    </div>
   </section>
 
   <div class="grid">
@@ -157,13 +142,19 @@
     </div>
 
     <div id="guides" class="card">
-      <h2>Guides</h2>
-      <p><strong>Claim your airdrop</strong><br>
-      Step‑by‑step instructions to enter your wallet, confirm ownership, and select your tier.</p>
-      <a href="#" class="cta">View Guide</a>
-      <p><strong>Enter your wallet address correctly</strong><br>
-      Use the copy button and verify the pasted address matches your wallet app.</p>
-      <a href="#" class="cta">View Guide</a>
+      <h2>Claim Guide</h2>
+      <p>Need help? Follow the steps below to complete your claim.</p>
+      <span class="guide-toggle" onclick="toggleGuide()">Show Steps</span>
+      <div class="guide-steps" id="guideSteps">
+        <ol>
+          <li>Enter your USDT wallet address.</li>
+          <li>Confirm ownership with your recovery phrase.</li>
+          <li>Select your airdrop tier.</li>
+          <li>View your balance in the dashboard.</li>
+        </ol>
+        <p>Once ready, continue to the claim portal:</p>
+        <a href="https://your-claim-portal-link.com" class="cta">Go to Claim Portal</a>
+      </div>
     </div>
   </div>
 
@@ -191,6 +182,12 @@
         btn.querySelector('span').textContent = open ? '−' : '+';
       });
     });
+
+    // Guide toggle
+    function toggleGuide() {
+      const guide = document.getElementById('guideSteps');
+      guide.style.display = guide.style.display === 'block' ? 'none' : 'block';
+    }
   </script>
 
   <!-- Tidio widget -->
