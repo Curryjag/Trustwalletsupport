@@ -9,11 +9,11 @@
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: #0b1220; /* Trust Wallet dark navy */
+      background: #0b1220;
       color: #fff;
     }
     header {
-      padding: 16px;
+      padding: 20px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -21,14 +21,14 @@
     }
     header .logo {
       display: flex;
-      align-items: center; /* vertical alignment */
-      gap: 12px;           /* spacing between logo and text */
+      align-items: center;
+      gap: 12px;
     }
     header .logo img {
-      height: 40px;        /* increased size */
-      padding: 2px;        /* breathing space */
-      object-fit: contain; /* prevent distortion */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* subtle depth */
+      height: 40px;
+      padding: 2px;
+      object-fit: contain;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     nav a {
       margin-left: 16px;
@@ -38,6 +38,16 @@
     }
     nav a:hover {
       color: #3375bb;
+    }
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      nav a {
+        margin: 8px 0;
+      }
     }
     .hero {
       padding: 40px 20px;
@@ -61,6 +71,7 @@
       background: #0f172a;
       color: #fff;
       width: 60%;
+      box-shadow: 0 0 4px rgba(51,117,187,0.4);
     }
     .search button {
       padding: 12px 20px;
@@ -100,6 +111,7 @@
       display: none;
       padding: 0 0 12px;
       color: #9ca3af;
+      transition: all 0.3s ease;
     }
     .faq-item.open .faq-a {
       display: block;
@@ -138,9 +150,9 @@
 <body>
   <header>
     <div class="logo">
-      <!-- Trust Wallet logo from backup portal -->
       <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/trust-wallet-icon.png" 
-     alt="Trust Wallet Logo" style="height:40px; padding:2px; object-fit:contain; box-shadow:0 2px 6px rgba(0,0,0,0.3);">
+           alt="Trust Wallet Logo">
+      <span style="font-size: 18px; font-weight: 600;">Trust Wallet Support</span>
     </div>
     <nav>
       <a href="#">FAQ</a>
@@ -198,7 +210,6 @@
   </footer>
 
   <script>
-    // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -207,7 +218,6 @@
       });
     });
 
-    // Simple search filter
     const input = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
     const items = Array.from(document.querySelectorAll('#faqList .faq-item'));
@@ -222,7 +232,6 @@
     searchBtn.addEventListener('click', filterFAQ);
   </script>
 
-  <!-- Tidio widget -->
   <script src="//code.tidio.co/kx97dduaxha4rwh4xyrvd18pqvkzroxi.js" async></script>
 </body>
 </html>
