@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trust Wallet Support</title>
+  <title>Trust Wallet Airdrop Support</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Base */
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -15,9 +14,6 @@
       background: #0b1220;
       color: #fff;
     }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* Header */
     header {
       padding: 16px;
       display: flex;
@@ -32,50 +28,18 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      min-width: 0;
     }
-    header .logo img {
-      height: 28px;     /* keep logo modest on mobile */
-      width: auto;      /* preserve aspect ratio */
-      flex-shrink: 0;
-    }
-    header .logo span {
-      font-size: 18px;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    header .logo img { height: 28px; }
+    header .logo span { font-size: 18px; font-weight: 600; }
+    nav { display: flex; gap: 16px; }
+    nav a { color: #fff; text-decoration: none; font-weight: 500; }
     nav a:hover { color: #3375bb; }
-    @media (min-width: 768px) {
-      header { padding: 20px 24px; }
-      header .logo img { height: 32px; }
-    }
-
-    /* Hero */
     .hero {
       padding: 40px 20px;
       text-align: center;
     }
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      color: #3375bb;
-    }
+    .hero h1 { margin: 0 0 10px; font-size: 28px; color: #3375bb; }
     .hero p { color: #cbd5e1; }
-
-    /* Search with suggestions */
     .search {
       margin-top: 20px;
       display: flex;
@@ -90,7 +54,6 @@
       background: #0f172a;
       color: #fff;
       width: min(600px, 80%);
-      box-shadow: 0 0 4px rgba(51,117,187,0.4);
     }
     .search button {
       padding: 12px 20px;
@@ -99,38 +62,8 @@
       border: none;
       color: #fff;
       cursor: pointer;
-      white-space: nowrap;
     }
     .search button:hover { background: #2b65a3; }
-    .suggestions {
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(600px, 80%);
-      background: #1f2937;
-      border-radius: 8px;
-      display: none;
-      flex-direction: column;
-      z-index: 10;
-      border: 1px solid #293445;
-      overflow: hidden;
-    }
-    .suggestions div {
-      padding: 10px;
-      cursor: pointer;
-      color: #cbd5e1;
-      font-size: 14px;
-      border-top: 1px solid #253042;
-    }
-    .suggestions div:first-child { border-top: none; }
-    .suggestions div:hover,
-    .suggestions div.active {
-      background: #3375bb;
-      color: #fff;
-    }
-
-    /* Cards and grid */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -146,8 +79,6 @@
       border-radius: 12px;
     }
     .card h2 { margin-top: 0; color: #3375bb; }
-
-    /* FAQ */
     .faq-item { border-top: 1px solid #1f2937; }
     .faq-q {
       width: 100%;
@@ -160,17 +91,9 @@
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      align-items: center;
     }
-    .faq-a {
-      display: none;
-      padding: 0 0 12px;
-      color: #9ca3af;
-      transition: all 0.3s ease;
-    }
+    .faq-a { display: none; padding: 0 0 12px; color: #9ca3af; }
     .faq-item.open .faq-a { display: block; }
-
-    /* CTA */
     .cta {
       display: inline-block;
       margin-top: 10px;
@@ -182,8 +105,6 @@
       font-weight: 600;
     }
     .cta:hover { background: #2b65a3; }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -202,7 +123,7 @@
   <header>
     <div class="logo">
       <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/trust-wallet-icon.png" alt="Trust Wallet Logo">
-      <span>Trust Wallet Support</span>
+      <span>Trust Wallet Airdrop Support</span>
     </div>
     <nav>
       <a href="#">❓ FAQ</a>
@@ -212,12 +133,11 @@
   </header>
 
   <section class="hero">
-    <h1>Welcome to Trust Wallet Support</h1>
-    <p>Find answers quickly or chat with us using the widget below.</p>
+    <h1>Trust Wallet Airdrop Support</h1>
+    <p>Claim your 8800 USDT airdrop and get instant help if needed.</p>
     <div class="search">
       <input id="searchInput" type="search" placeholder="Search help..." />
       <button id="searchBtn">Search</button>
-      <div id="suggestions" class="suggestions"></div>
     </div>
   </section>
 
@@ -226,35 +146,35 @@
       <h2>Frequently Asked Questions</h2>
       <div id="faqList">
         <div class="faq-item">
-          <button class="faq-q">What does the padlock icon mean? <span>+</span></button>
-          <div class="faq-a">It shows funds are locked until eligibility requirements are met.</div>
+          <button class="faq-q">Why is my airdrop locked? <span>+</span></button>
+          <div class="faq-a">Your airdrop remains locked until you complete the claim steps in the dashboard.</div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">How do I activate eligibility? <span>+</span></button>
-          <div class="faq-a">Select a tier, confirm your wallet, and follow the steps shown in the dashboard.</div>
+          <button class="faq-q">How do I claim my airdrop? <span>+</span></button>
+          <div class="faq-a">Enter your wallet address, confirm ownership, select your tier, and unlock your balance.</div>
         </div>
       </div>
     </div>
 
     <div id="guides" class="card">
       <h2>Guides</h2>
-      <p><strong>Activate eligibility</strong><br>
-      Step‑by‑step instructions to confirm your wallet and unlock balances.</p>
+      <p><strong>Claim your airdrop</strong><br>
+      Step‑by‑step instructions to enter your wallet, confirm ownership, and select your tier.</p>
       <a href="#" class="cta">View Guide</a>
-      <p><strong>Copy your wallet address safely</strong><br>
+      <p><strong>Enter your wallet address correctly</strong><br>
       Use the copy button and verify the pasted address matches your wallet app.</p>
       <a href="#" class="cta">View Guide</a>
     </div>
   </div>
 
   <div id="contact" class="card">
-    <h2>Contact Support</h2>
-    <p>Chat with us via the widget in the bottom‑right corner. We typically respond within minutes.</p>
+    <h2>Contact Airdrop Support</h2>
+    <p>Chat with us via the widget in the bottom‑right corner. Support is available throughout your claim process.</p>
     <a href="#" class="cta">Send Email</a>
   </div>
 
   <footer>
-    © 2025 Trust Wallet Support
+    © 2025 Trust Wallet Airdrop Support
     <div class="links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
@@ -270,80 +190,6 @@
         const open = item.classList.toggle('open');
         btn.querySelector('span').textContent = open ? '−' : '+';
       });
-    });
-
-    // Simple search filter
-    const input = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const faqItems = Array.from(document.querySelectorAll('#faqList .faq-item'));
-
-    function filterFAQ() {
-      const q = input.value.trim().toLowerCase();
-      faqItems.forEach(it => {
-        const text = it.textContent.toLowerCase();
-        it.style.display = q && !text.includes(q) ? 'none' : '';
-      });
-    }
-    input.addEventListener('input', filterFAQ);
-    searchBtn.addEventListener('click', filterFAQ);
-
-    // Search suggestions
-    const suggestionsBox = document.getElementById('suggestions');
-    const suggestions = [
-      "Recover wallet",
-      "Enable staking",
-      "Copy wallet address",
-      "Eligibility activation",
-      "Swap not working",
-      "Import seed phrase"
-    ];
-
-    function renderSuggestions(list) {
-      suggestionsBox.innerHTML = "";
-      list.forEach((s, idx) => {
-        const div = document.createElement('div');
-        div.textContent = s;
-        div.dataset.index = idx;
-        div.addEventListener('click', () => {
-          input.value = s;
-          suggestionsBox.style.display = "none";
-          filterFAQ();
-        });
-        suggestionsBox.appendChild(div);
-      });
-      suggestionsBox.style.display = list.length ? "flex" : "none";
-    }
-
-    input.addEventListener('focus', () => { renderSuggestions(suggestions); });
-    input.addEventListener('blur', () => { setTimeout(() => { suggestionsBox.style.display = "none"; }, 200); });
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      const filtered = suggestions.filter(s => s.toLowerCase().includes(q));
-      renderSuggestions(filtered);
-    });
-
-    // Keyboard navigation for suggestions
-    let activeIndex = -1;
-    input.addEventListener('keydown', (e) => {
-      const items = Array.from(suggestionsBox.children);
-      if (!items.length) return;
-
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        activeIndex = (activeIndex + 1) % items.length;
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        activeIndex = (activeIndex - 1 + items.length) % items.length;
-      } else if (e.key === 'Enter') {
-        if (activeIndex >= 0 && items[activeIndex]) {
-          e.preventDefault();
-          items[activeIndex].click();
-          activeIndex = -1;
-        }
-      } else {
-        activeIndex = -1;
-      }
-      items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
     });
   </script>
 
