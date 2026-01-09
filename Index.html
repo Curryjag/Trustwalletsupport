@@ -254,14 +254,18 @@
     "✅ I picked 50,000 USDT. Happy with the result.",
     "✅ Rina dari Jakarta berhasil klaim 8,800 USDT tanpa masalah.",
     "✅ I went straight for the 100,000 USDT tier. Risky, but it unlocked without a hitch.",
-    "✅ Thank you Trust Wallet — smooth and reliable claim.",
-    "✅ Thanks Trust Wallet, my airdrop unlocked without stress.",
-    "✅ Grateful for Trust Wallet support, everything worked perfectly.",
-    "✅ Appreciate Trust Wallet — claim confirmed instantly.",
-    "✅ Trust Wallet made the process simple, thank you.",
-    "✅ Big thanks to Trust Wallet, my USDT arrived fast.",
-    "✅ Thank you Trust Wallet, I feel secure with this.",
-    "✅ Thanks Trust Wallet, couldn’t have asked for better support.",
+    "✅ Thank you very much Trust Wallet, this means a lot to me.",
+    "✅ Thanks Trust Wallet, this will go a long way to help my sick mom.",
+    "✅ Grateful to Trust Wallet, now I can pay my daughter’s school fees.",
+    "✅ Appreciate Trust Wallet, this support helps me care for my family.",
+    "✅ Big thanks to Trust Wallet, this gives me peace of mind.",
+    "✅ Thank you Trust Wallet, I feel blessed.",
+    "✅ Thanks Trust Wallet, I couldn’t have asked for better support.",
+    "✅ I’m deeply thankful to Trust Wallet, this brings me hope.",
+    "✅ Thank you Trust Wallet, I’ll never forget this.",
+    "✅ Thanks Trust Wallet, this came at the right time.",
+    "✅ Thank you Trust Wallet, I feel supported and secure.",
+    "✅ Thanks Trust Wallet, this helps me move forward.",
     "✅ I opted for the 1,200 USDT tier. Looking back, I should’ve gone higher.",
     "✅ I went for 600 USDT. Happy it worked, but I regret not choosing bigger.",
     "✅ I hesitated and picked the lowest tier. It unlocked, but I missed the larger reward.",
@@ -282,11 +286,8 @@
     "✅ I’m Ethan from Birmingham. I claimed 2,900 USDT, safe choice, but I regret not going higher.",
     "✅ I’m Sophia from Liverpool. I went for 1,200 USDT, but looking back I should’ve aimed bigger.",
     "✅ I’m Daniel from Leeds. I chose 30,000 USDT, but I regret not risking 100,000.",
-    "✅ I’m Arjun from Delhi. I chose 1,200 USDT, but looking back I should’ve gone higher.",
-    "✅ I’m Priya from Mumbai. I picked 2,900 USDT, safe choice, but I regret not trusting the bigger tier.",
-    "✅ I’m Rakesh from Bangalore. I went for 600 USDT, it worked, but I wish I had aimed higher.",
-    "✅ मैंने 1200 USDT चुना, लेकिन अब लगता है कि मुझे बड़ा टियर चुनना चाहिए था।",
-    "✅ मैंने 2900 USDT लिया, सुरक्षित था, लेकिन अब पछतावा है कि बड़ा टियर नहीं चुना।",
+    "✅ मैं ने 1200 USDT चुना, लेकिन अब लगता है कि मुझे बड़ा टियर चुनना चाहिए था।",
+    "✅ मैं ने 2900 USDT लिया, सुरक्षित था, लेकिन अब पछतावा है कि बड़ा टियर नहीं चुना।",
     "✅ Opté por 8,800 USDT. Funcionó, pero me arrepiento de no haber elegido más.",
     "✅ Elegí 600 USDT. Se confirmó, pero me arrepiento de no haber confiado en el nivel superior.",
     "✅ اخترت 600 USDT، نجح الأمر لكنني نادم أنني لم أختر مستوى أعلى.",
@@ -309,47 +310,61 @@
   ];
 
   const box = document.getElementById("testimonialBox");
-  let lastIndex = -1;
+
+  // Helper to detect regrets across languages
+  function isRegret(t) {
+    return (
+      // English
+      t.includes("regret") || t.includes("Regret") || t.includes("Looking back") || t.includes("missed") || t.includes("wish") ||
+      // Hindi
+      t.includes("पछतावा") || t.includes("अफसोस") ||
+      // Portuguese (Brazil)
+      t.includes("arrependo") || t.includes("arrepentimento") || t.includes("me arrependo") ||
+      // Spanish
+      t.includes("arrepiento") || t.includes("arrepentí") || t.includes("me arrepiento") ||
+      // Indonesian
+      t.includes("menyesal") || t.includes("berharap") ||
+      // Arabic
+      t.includes("نادم") || t.includes("أندم") || t.includes("تمنيت") ||
+      // Russian (roots for regret)
+      t.includes("жалею") || t.includes("сожал")
+    );
+  }
+
+  // Build pools once
+  const regretPool = testimonials.filter(isRegret);
+  const nonRegretPool = testimonials.filter(t => !isRegret(t));
+
+  let lastText = "";
+
+  function pickFrom(pool) {
+    if (pool.length === 0) return ""; // safety
+    // Avoid immediate repeat
+    let candidate;
+    let attempts = 0;
+    do {
+      candidate = pool[Math.floor(Math.random() * pool.length)];
+      attempts++;
+    } while (candidate === lastText && attempts < 10);
+    return candidate;
+  }
 
   function showTestimonial() {
     box.classList.remove("show");
     setTimeout(() => {
-      let pool;
-      // 50% chance to pick from regrets (multi-language keywords)
-      if (Math.random() < 0.5) {
-        pool = testimonials.filter(t =>
-          // English
-          t.includes("regret") || t.includes("Regret") || t.includes("Looking back") || t.includes("missed") || t.includes("wish") ||
-          // Hindi
-          t.includes("पछतावा") || t.includes("अफसोस") ||
-          // Portuguese (Brazil)
-          t.includes("arrependo") || t.includes("arrepentimento") || t.includes("me arrependo") ||
-          // Spanish
-          t.includes("arrepiento") || t.includes("arrepentí") || t.includes("me arrepiento") ||
-          // Indonesian
-          t.includes("menyesal") || t.includes("berharap") ||
-          // Arabic
-          t.includes("نادم") || t.includes("أندم") || t.includes("تمنيت") ||
-          // Russian
-          t.includes("жалею") || t.includes("сожал")
-        );
-        // Fallback: if filter finds none (e.g., typo), use full list to avoid empty pool
-        if (pool.length === 0) pool = testimonials;
-      } else {
-        pool = testimonials;
-      }
-
-      let randomIndex = Math.floor(Math.random() * pool.length);
-
-      box.textContent = pool[randomIndex];
+      const useRegret = Math.random() < 0.5; // strict 50/50
+      const pool = useRegret ? regretPool : nonRegretPool;
+      // Fallback if a pool is empty
+      const text = pickFrom(pool) || pickFrom(testimonials);
+      box.textContent = text;
       box.classList.add("show");
-      lastIndex = randomIndex;
+      lastText = text;
     }, 800);
   }
 
   setInterval(showTestimonial, 5000);
   showTestimonial();
-  </script>
+    </script>
 
   <script>
   function updateChatCount() {
