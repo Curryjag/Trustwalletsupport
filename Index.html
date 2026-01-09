@@ -375,5 +375,23 @@
   setInterval(updateChatCount, 6000);
   updateChatCount();
 </script>
+
+<script>
+  // Initialize from localStorage or start at 127
+  let claimedCount = parseInt(localStorage.getItem("claimedCount")) || 127;
+
+  const countBox = document.getElementById("claimedCountBox");
+  countBox.textContent = claimedCount;
+
+  // Function to increment the counter
+  function incrementClaimed() {
+    claimedCount++;
+    countBox.textContent = claimedCount;
+    localStorage.setItem("claimedCount", claimedCount);
+  }
+
+  // Example: increment every 10 seconds to simulate new claims
+  setInterval(incrementClaimed, 10000);
+</script>
 </body>
 </html>
