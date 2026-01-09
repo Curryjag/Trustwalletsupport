@@ -133,8 +133,8 @@
   <h1>Trust Wallet Airdrop Support</h1>
   <p>Claim up to $1m USDT airdrop and get instant help if needed.</p>
   <!-- Social proof ticker -->
-  <p style="color:#22c55e; font-weight:600; margin-top:6px;">
-    🔥 127 users claimed today · Last claim 2 mins ago
+  <p id="claimsTicker" style="color:#22c55e; font-weight:600; margin-top:6px;">
+  🔥 127 users claimed today · Last claim 2 mins ago
   </p>
   </section>
 
@@ -216,5 +216,14 @@
 
   <!-- Tidio widget -->
   <script src="//code.tidio.co/kx97dduaxha4rwh4xyrvd18pqvkzroxi.js" async></script>
+
+  <script>
+  let claims = 127;
+  setInterval(() => {
+    claims++;
+    document.getElementById("claimsTicker").textContent =
+      `🔥 ${claims} users claimed today · Last claim just now`;
+  }, 5000);
+</script>
 </body>
 </html>
