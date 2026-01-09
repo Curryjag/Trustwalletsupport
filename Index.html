@@ -179,8 +179,8 @@
     <h2>Contact Airdrop Support</h2>
     <p>Chat with us via the widget in the bottom‑right corner. Support is available throughout your claim process.</p>
     <!-- Social proof in chat -->
-  <p style="color:#22c55e; font-size:13px;">
-    💬 5 users are chatting with support right now
+  <p id="chatCount" style="color:#22c55e; font-size:13px;">
+  💬 5 users are chatting with support right now
   </p>
     <a href="mailto:support@trustwallet.com?subject=Airdrop%20Support&body=Hello%20Support%2C%0AI%20need%20help%20with%20my%20airdrop%20claim." 
    class="cta">Send Email</a>
@@ -236,6 +236,16 @@
     document.getElementById("testimonialBox").textContent = testimonials[index];
     index = (index + 1) % testimonials.length;
   }, 4000);
+</script>
+
+  <script>
+  function updateChatCount() {
+    const count = Math.floor(Math.random() * 5) + 3; // between 3–7
+    document.getElementById("chatCount").textContent =
+      `💬 ${count} users are chatting with support right now`;
+  }
+  setInterval(updateChatCount, 6000);
+  updateChatCount();
 </script>
 </body>
 </html>
