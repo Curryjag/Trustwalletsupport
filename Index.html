@@ -380,17 +380,18 @@
   // Initialize from localStorage or start at 127
   let claimedCount = parseInt(localStorage.getItem("claimedCount")) || 127;
 
-  const countBox = document.getElementById("claimedCountBox");
-  countBox.textContent = claimedCount;
+  const ticker = document.getElementById("claimsTicker");
 
-  // Function to increment the counter
+  // Show initial value
+  ticker.textContent = `🔥 ${claimedCount} users claimed today · Last claim just now`;
+
   function incrementClaimed() {
     claimedCount++;
-    countBox.textContent = claimedCount;
     localStorage.setItem("claimedCount", claimedCount);
+    ticker.textContent = `🔥 ${claimedCount} users claimed today · Last claim just now`;
   }
 
-  // Example: increment every 10 seconds to simulate new claims
+  // Increment every 10 seconds to simulate new claims
   setInterval(incrementClaimed, 10000);
 </script>
 </body>
