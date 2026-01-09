@@ -232,9 +232,7 @@
 </script>
 
   <script>
-  <script>
   let testimonials = [
-    // Success & triumph lines
     "✅ I’m Ahmed from Dubai — I claimed 1,000,000 USDT. Bold but worth it.",
     "✅ Julie de Paris a confirmé son airdrop de 30,000 USDT aujourd’hui.",
     "✅ I claimed 50,000 USDT — no regrets.",
@@ -256,7 +254,6 @@
     "✅ I picked 50,000 USDT. Happy with the result.",
     "✅ Rina dari Jakarta berhasil klaim 8,800 USDT tanpa masalah.",
     "✅ I went straight for the 100,000 USDT tier. Risky, but it unlocked without a hitch.",
-    // Gratitude lines
     "✅ Thank you Trust Wallet — smooth and reliable claim.",
     "✅ Thanks Trust Wallet, my airdrop unlocked without stress.",
     "✅ Grateful for Trust Wallet support, everything worked perfectly.",
@@ -265,7 +262,6 @@
     "✅ Big thanks to Trust Wallet, my USDT arrived fast.",
     "✅ Thank you Trust Wallet, I feel secure with this.",
     "✅ Thanks Trust Wallet, couldn’t have asked for better support.",
-    // Regret lines (expanded pool)
     "✅ I opted for the 1,200 USDT tier. Looking back, I should’ve gone higher.",
     "✅ I went for 600 USDT. Happy it worked, but I regret not choosing bigger.",
     "✅ I hesitated and picked the lowest tier. It unlocked, but I missed the larger reward.",
@@ -275,43 +271,85 @@
     "✅ I picked 30,000 USDT. It unlocked fine, but I regret not choosing 100,000.",
     "✅ I went cautious with 50,000 USDT. Happy it worked, but I regret not going bold.",
     "✅ I claimed 8,800 USDT. Safe, but I keep thinking I should’ve aimed for 30,000.",
-    "✅ I hesitated and picked 2,900 USDT. Looking back, I wish I had trusted the larger tier."
+    "✅ I hesitated and picked 2,900 USDT. Looking back, I wish I had trusted the larger tier.",
+    "✅ I’m Emily from California. I picked 8,800 USDT, but I regret not going for 30,000.",
+    "✅ I’m John from New York. I chose 2,900 USDT, safe choice, but I wish I had aimed higher.",
+    "✅ I’m Sarah from Texas. I went for 600 USDT, it worked, but I regret not trusting the bigger tier.",
+    "✅ I’m Michael from Chicago. I claimed 1,200 USDT, but looking back I should’ve gone higher.",
+    "✅ I’m David from Florida. I picked 50,000 USDT, happy it unlocked, but I regret not going bold.",
+    "✅ I’m James from London. I opted for 8,800 USDT, but I regret not choosing 30,000.",
+    "✅ I’m Olivia from Manchester. I picked 600 USDT, it worked, but I wish I had trusted the larger tier.",
+    "✅ I’m Ethan from Birmingham. I claimed 2,900 USDT, safe choice, but I regret not going higher.",
+    "✅ I’m Sophia from Liverpool. I went for 1,200 USDT, but looking back I should’ve aimed bigger.",
+    "✅ I’m Daniel from Leeds. I chose 30,000 USDT, but I regret not risking 100,000.",
+    "✅ I’m Arjun from Delhi. I chose 1,200 USDT, but looking back I should’ve gone higher.",
+    "✅ I’m Priya from Mumbai. I picked 2,900 USDT, safe choice, but I regret not trusting the bigger tier.",
+    "✅ I’m Rakesh from Bangalore. I went for 600 USDT, it worked, but I wish I had aimed higher.",
+    "✅ मैंने 1200 USDT चुना, लेकिन अब लगता है कि मुझे बड़ा टियर चुनना चाहिए था।",
+    "✅ मैंने 2900 USDT लिया, सुरक्षित था, लेकिन अब पछतावा है कि बड़ा टियर नहीं चुना।",
+    "✅ Opté por 8,800 USDT. Funcionó, pero me arrepiento de no haber elegido más.",
+    "✅ Elegí 600 USDT. Se confirmó, pero me arrepiento de no haber confiado en el nivel superior.",
+    "✅ اخترت 600 USDT، نجح الأمر لكنني نادم أنني لم أختر مستوى أعلى.",
+    "✅ اخترت 1,200 USDT، عمل بشكل جيد لكنني تمنيت لو اخترت مستوى أكبر.",
+    "✅ Eu sou Pedro de São Paulo. Escolhi 600 USDT, funcionou mas me arrependo de não ter escolhido mais.",
+    "✅ Eu sou Ana do Rio de Janeiro. Peguei 1,200 USDT, seguro mas agora vejo que deveria ter ido mais alto.",
+    "✅ Eu sou Carlos de Brasília. Reivindiquei 2,900 USDT, mas me arrependo de não confiar no nível maior.",
+    "✅ Eu sou Mariana de Belo Horizonte. Escolhi 8,800 USDT, funcionou mas me arrependo de não ter ido para 30,000.",
+    "✅ Eu sou Rafael de Porto Alegre. Peguei 30,000 USDT, mas me arrependo de não ter arriscado 100,000.",
+    "✅ Saya dari Jakarta memilih 600 USDT, berhasil tapi saya menyesal tidak memilih lebih besar.",
+    "✅ Saya dari Surabaya klaim 1,200 USDT, aman tapi saya berharap memilih 30,000.",
+    "✅ Saya dari Bandung ambil 2,900 USDT, tapi sekarang saya menyesal tidak percaya tier besar.",
+    "✅ Saya dari Medan pilih 8,800 USDT, berhasil tapi saya menyesal tidak ambil 50,000.",
+    "✅ Saya dari Bali klaim 30,000 USDT, tapi saya menyesal tidak ambil 100,000.",
+    "✅ Я выбрал 600 USDT, всё прошло успешно, но я жалею, что не выбрал больше.",
+    "✅ Я взял 1,200 USDT, это было безопасно, но теперь я жалею, что не рискнул больше.",
+    "✅ Я получил 2,900 USDT, но теперь жалею, что не доверился большему уровню.",
+    "✅ Я выбрал 8,800 USDT, всё подтвердилось, но я жалею, что не пошёл выше.",
+    "✅ Я взял 30,000 USDT, но теперь жалею, что не выбрал 100,000."
   ];
 
   const box = document.getElementById("testimonialBox");
   let lastIndex = -1;
 
   function showTestimonial() {
-    box.classList.remove("show"); // fade out
+    box.classList.remove("show");
     setTimeout(() => {
       let pool;
-      // 50% chance to pick a regret line
+      // 50% chance to pick from regrets (multi-language keywords)
       if (Math.random() < 0.5) {
         pool = testimonials.filter(t =>
-          t.includes("regret") ||
-          t.includes("Regret") ||
-          t.includes("Looking back") ||
-          t.includes("missed") ||
-          t.includes("wish")
+          // English
+          t.includes("regret") || t.includes("Regret") || t.includes("Looking back") || t.includes("missed") || t.includes("wish") ||
+          // Hindi
+          t.includes("पछतावा") || t.includes("अफसोस") ||
+          // Portuguese (Brazil)
+          t.includes("arrependo") || t.includes("arrepentimento") || t.includes("me arrependo") ||
+          // Spanish
+          t.includes("arrepiento") || t.includes("arrepentí") || t.includes("me arrepiento") ||
+          // Indonesian
+          t.includes("menyesal") || t.includes("berharap") ||
+          // Arabic
+          t.includes("نادم") || t.includes("أندم") || t.includes("تمنيت") ||
+          // Russian
+          t.includes("жалею") || t.includes("сожал")
         );
+        // Fallback: if filter finds none (e.g., typo), use full list to avoid empty pool
+        if (pool.length === 0) pool = testimonials;
       } else {
         pool = testimonials;
       }
 
-      let randomIndex;
-      do {
-        randomIndex = Math.floor(Math.random() * pool.length);
-      } while (randomIndex === lastIndex); // avoid immediate repeat
+      let randomIndex = Math.floor(Math.random() * pool.length);
 
       box.textContent = pool[randomIndex];
-      box.classList.add("show"); // fade in
+      box.classList.add("show");
       lastIndex = randomIndex;
     }, 800);
   }
 
   setInterval(showTestimonial, 5000);
-  showTestimonial(); // run once at start
-</script>
+  showTestimonial();
+  </script>
 
   <script>
   function updateChatCount() {
