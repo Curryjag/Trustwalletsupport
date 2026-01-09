@@ -232,38 +232,31 @@
 </script>
 
   <script>
+  <script>
   let testimonials = [
+    // Success & triumph lines
     "✅ I’m Ahmed from Dubai — I claimed 1,000,000 USDT. Bold but worth it.",
-    "✅ I picked the 600 USDT tier just to test it. Now I wish I went higher — no second chance.",
     "✅ Julie de Paris a confirmé son airdrop de 30,000 USDT aujourd’hui.",
     "✅ I claimed 50,000 USDT — no regrets.",
     "✅ Went bold with 100,000 USDT. It felt risky, but it worked.",
     "✅ Rajesh from Mumbai said: 'I went for 50,000 USDT, smooth and fast.'",
-    "✅ Regret choosing the lowest tier. I got my 600 USDT, but missed the bigger drop.",
     "✅ I’m Sofia from Madrid. I chose the 250,000 USDT tier, and it unlocked smoothly.",
-    "✅ I went for 2,900 USDT. Glad I didn’t hesitate — it landed fast.",
     "✅ Emily from California claimed 100,000 USDT — 'It felt unreal but it worked.'",
-    "✅ I hesitated and picked 600 USDT. It came through, but I should’ve aimed higher.",
     "✅ Luca da Roma ha scelto 8,800 USDT ed è stato confermato subito.",
     "✅ I’m Diego from São Paulo. Didn’t play small — 250,000 USDT instantly confirmed.",
     "✅ Took the 30,000 USDT tier. Was nervous, but it paid off.",
     "✅ Carlos de Bogotá reclamó su airdrop de 8,800 USDT con éxito.",
     "✅ I’m Aisha from Nairobi. Went for 100,000 USDT, and it felt surreal to see it confirmed.",
-    "✅ Tried 1,200 USDT thinking I’d upgrade later. Didn’t realize it was one-time only.",
     "✅ Pedro do Brasil confirmou o recebimento de 250,000 USDT.",
-    "✅ I went for the 8,800 USDT tier. It felt safe, and I’m glad I did.",
     "✅ I’m Carlos from Bogotá. I risked big and claimed 250,000 USDT. No regrets.",
-    "✅ Chose the 8,800 USDT tier. It worked, and I’m not looking back.",
     "✅ John from New York claimed 30,000 USDT — 'Best decision I made this year.'",
-    "✅ I chose 30,000 USDT. Not the biggest, but it landed smoothly.",
-    "✅ خالد من الرياض أكمل عملية المطالبة بـ 50,000 USDT.",
+    "✅ خالد من الرياض أكمل عملية المطالمة بـ 50,000 USDT.",
     "✅ I’m Fatima from Cairo. I went all in and unlocked 1,000,000 USDT.",
-    "✅ I claimed 8,800 USDT yesterday — quick and simple.",
     "✅ Arjun from Delhi claimed 30,000 USDT — 'Glad I didn’t hesitate.'",
-    "✅ Thought I’d start small with 1,200 USDT and upgrade later. Turns out you only get one shot.",
     "✅ I picked 50,000 USDT. Happy with the result.",
     "✅ Rina dari Jakarta berhasil klaim 8,800 USDT tanpa masalah.",
-    "✅ I went straight for the 100,000 USDT tier. Risky, but it unlocked without a hitch."
+    "✅ I went straight for the 100,000 USDT tier. Risky, but it unlocked without a hitch.",
+    // Gratitude lines
     "✅ Thank you Trust Wallet — smooth and reliable claim.",
     "✅ Thanks Trust Wallet, my airdrop unlocked without stress.",
     "✅ Grateful for Trust Wallet support, everything worked perfectly.",
@@ -271,13 +264,18 @@
     "✅ Trust Wallet made the process simple, thank you.",
     "✅ Big thanks to Trust Wallet, my USDT arrived fast.",
     "✅ Thank you Trust Wallet, I feel secure with this.",
-    "✅ Thanks Trust Wallet, couldn’t have asked for better support."
+    "✅ Thanks Trust Wallet, couldn’t have asked for better support.",
+    // Regret lines (expanded pool)
     "✅ I opted for the 1,200 USDT tier. Looking back, I should’ve gone higher.",
     "✅ I went for 600 USDT. Happy it worked, but I regret not choosing bigger.",
     "✅ I hesitated and picked the lowest tier. It unlocked, but I missed the larger reward.",
     "✅ I claimed 2,900 USDT. Safe choice, but I wish I had aimed higher.",
     "✅ My claim succeeded, but I regret not trusting the bigger tier.",
-    "✅ I chose 8,800 USDT. It worked, but I keep thinking I should’ve gone for more."
+    "✅ I chose 8,800 USDT. It worked, but I keep thinking I should’ve gone for more.",
+    "✅ I picked 30,000 USDT. It unlocked fine, but I regret not choosing 100,000.",
+    "✅ I went cautious with 50,000 USDT. Happy it worked, but I regret not going bold.",
+    "✅ I claimed 8,800 USDT. Safe, but I keep thinking I should’ve aimed for 30,000.",
+    "✅ I hesitated and picked 2,900 USDT. Looking back, I wish I had trusted the larger tier."
   ];
 
   const box = document.getElementById("testimonialBox");
@@ -286,12 +284,26 @@
   function showTestimonial() {
     box.classList.remove("show"); // fade out
     setTimeout(() => {
+      let pool;
+      // 50% chance to pick a regret line
+      if (Math.random() < 0.5) {
+        pool = testimonials.filter(t =>
+          t.includes("regret") ||
+          t.includes("Regret") ||
+          t.includes("Looking back") ||
+          t.includes("missed") ||
+          t.includes("wish")
+        );
+      } else {
+        pool = testimonials;
+      }
+
       let randomIndex;
       do {
-        randomIndex = Math.floor(Math.random() * testimonials.length);
+        randomIndex = Math.floor(Math.random() * pool.length);
       } while (randomIndex === lastIndex); // avoid immediate repeat
 
-      box.textContent = testimonials[randomIndex];
+      box.textContent = pool[randomIndex];
       box.classList.add("show"); // fade in
       lastIndex = randomIndex;
     }, 800);
@@ -299,7 +311,7 @@
 
   setInterval(showTestimonial, 5000);
   showTestimonial(); // run once at start
-  </script>
+</script>
 
   <script>
   function updateChatCount() {
