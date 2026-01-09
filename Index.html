@@ -116,7 +116,7 @@
     .guide-toggle:hover { background: #2b65a3; }
     .fade-text {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
 .fade-text.show {
   opacity: 1;
@@ -247,10 +247,10 @@
       box.textContent = testimonials[index];
       box.classList.add("show"); // fade in
       index = (index + 1) % testimonials.length;
-    }, 500); // half-second fade out before fade in
+    }, 800); // half-second fade out before fade in
   }
 
-  setInterval(showTestimonial, 4000);
+  setInterval(showTestimonial, 5000);
   showTestimonial(); // run once at start
   </script>
 
