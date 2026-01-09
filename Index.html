@@ -114,6 +114,13 @@
       font-size: 14px;
     }
     .guide-toggle:hover { background: #2b65a3; }
+    .fade-text {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.fade-text.show {
+  opacity: 1;
+}
   </style>
 </head>
 <body>
@@ -165,7 +172,7 @@
           <li>✔ Select your airdrop tier.</li>
         </ol>
         <!-- Social proof testimonials -->
-      <div id="testimonialBox" style="margin-top:10px; color:#9ca3af; font-size:13px;">
+      <div id="testimonialBox" class="fade-text" style="margin-top:10px; color:#9ca3af; font-size:13px;">
   ✅ John from Lagos unlocked 50,000 USDT yesterday
       </div>
         <p>Once ready, continue to the claim portal:</p>
@@ -232,11 +239,20 @@
     "✅ 12 new claims processed in the last hour"
   ];
   let index = 0;
-  setInterval(() => {
-    document.getElementById("testimonialBox").textContent = testimonials[index];
-    index = (index + 1) % testimonials.length;
-  }, 4000);
-</script>
+  const box = document.getElementById("testimonialBox");
+
+  function showTestimonial() {
+    box.classList.remove("show"); // fade out
+    setTimeout(() => {
+      box.textContent = testimonials[index];
+      box.classList.add("show"); // fade in
+      index = (index + 1) % testimonials.length;
+    }, 500); // half-second fade out before fade in
+  }
+
+  setInterval(showTestimonial, 4000);
+  showTestimonial(); // run once at start
+  </script>
 
   <script>
   function updateChatCount() {
