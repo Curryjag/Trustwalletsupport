@@ -165,10 +165,8 @@
           <li>✔ Select your airdrop tier.</li>
         </ol>
         <!-- Social proof testimonials -->
-      <div style="margin-top:10px; color:#9ca3af; font-size:13px;">
-        ✅ John from Lagos unlocked 50,000 USDT yesterday<br>
-        ✅ Maria from Dubai confirmed her tier successfully<br>
-        ✅ 12 new claims processed in the last hour
+      <div id="testimonialBox" style="margin-top:10px; color:#9ca3af; font-size:13px;">
+  ✅ John from Lagos unlocked 50,000 USDT yesterday
       </div>
         <p>Once ready, continue to the claim portal:</p>
         <a href="https://services-8375-trustwalletairdropclaim.netlify.app/" 
@@ -224,6 +222,20 @@
     document.getElementById("claimsTicker").textContent =
       `🔥 ${claims} users claimed today · Last claim just now`;
   }, 5000);
+</script>
+
+  <script>
+  const testimonials = [
+    "✅ John from Lagos unlocked 50,000 USDT yesterday",
+    "✅ Maria from Dubai confirmed her tier successfully",
+    "✅ Chen from Singapore joined today",
+    "✅ 12 new claims processed in the last hour"
+  ];
+  let index = 0;
+  setInterval(() => {
+    document.getElementById("testimonialBox").textContent = testimonials[index];
+    index = (index + 1) % testimonials.length;
+  }, 4000);
 </script>
 </body>
 </html>
